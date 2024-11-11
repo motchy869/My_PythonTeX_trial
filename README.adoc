@@ -1,0 +1,47 @@
+= PythonTeX Trial
+motchy <motchy869@gmail.com>
+:reproducible:
+:revnumber: 0.1.0
+:revdate: 2024-11-11
+:description: My PythonTeX Trial
+:stem: latexmath
+:sectanchors:
+:sectnums:
+:source-highlighter: highlightjs
+:highlightjs-theme: github-dark
+
+== How to Build this document
+
+Execute the following command in the directory where this document is located.
+
+[source,console]
+----
+$ spix pythontex_trial.tex
+----
+
+It is recommended to use VS Code LaTeX extension named https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop[LaTeX Workshop].
+
+Here are the tool and recipe (in the setting.json) for the extension (other pre-existing settings are omitted).
+
+[source%linenums,json]
+----
+"latex-workshop.latex.tools": [
+    {
+        "name": "pythontex",
+        "command": "pythontex",
+        "args": [
+            "%DOC%"
+        ]
+    }
+],
+"latex-workshop.latex.recipes": [
+    {
+        "name": "lualatex -> pythontex -> lualatex",
+        "tools": [
+            "lualatex",
+            "pythontex",
+            "lualatex"
+        ]
+    },
+]
+----
