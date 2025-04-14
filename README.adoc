@@ -10,38 +10,30 @@ motchy <motchy869@gmail.com>
 :source-highlighter: highlightjs
 :highlightjs-theme: github-dark
 
+== Definitions
+
+* workspace directory: the directory where this README.md file is located.
+* build output directory: `<workspace directory>/build-out`. The output PDF file is generated here.
+
 == How to Build this document
 
-Execute the following command in the directory where this document is located.
+=== Method 1: Using Command Line
 
-[source,console]
+1. Open a terminal and navigate to the workspace directory.
+2. Run the following command to compile the document:
++
+[source, bash]
 ----
-$ spix pythontex_trial.tex
+bash -c 'cd src; lualatex -file-line-error -synctex=1 -interaction=nonstopmode -halt-on-error -output-directory=../build-out pythontex_trial.tex; pythontex ../build-out/pythontex_trial; lualatex -file-line-error -synctex=1 -interaction=nonstopmode -halt-on-error -output-directory=../build-out pythontex_trial.tex'
 ----
 
-It is recommended to use VS Code LaTeX extension named https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop[LaTeX Workshop].
+=== Method 2: (recommended) Using VS Code and LaTeX Workshop
 
-Here are the tool and recipe (in the setting.json) for the extension (other pre-existing settings are omitted).
+We need to install link:https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop[LaTeX Workshop].
 
-[source%linenums,json]
-----
-"latex-workshop.latex.tools": [
-    {
-        "name": "pythontex",
-        "command": "pythontex",
-        "args": [
-            "%DOC%"
-        ]
-    }
-],
-"latex-workshop.latex.recipes": [
-    {
-        "name": "lualatex -> pythontex -> lualatex",
-        "tools": [
-            "lualatex",
-            "pythontex",
-            "lualatex"
-        ]
-    },
-]
-----
+. Open the workspace directory in VS Code.
+. Open the command palette (Ctrl+Shift+P) and type "LaTeX Workshop: Build with recipe".
+. Select "lualatex->pythontex->lualatex". +
+Don't worry. `./vscode/settings.json` is already configured appropriately. It is recommended to look at the settings and you will learn how this works.
+
+. Wait for the build to finish.

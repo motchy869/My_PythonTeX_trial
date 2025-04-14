@@ -1,12 +1,113 @@
 {
+    "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/build-out",
+    "latex-workshop.latex.tools": [
+        {
+            "name": "lualatex",
+            "command": "lualatex",
+            "args": [
+                "-file-line-error",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-halt-on-error",
+                "-output-directory=%OUTDIR%",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "pythontex",
+            "command": "pythontex",
+            "args": [
+                "%OUTDIR%/%DOCFILE%",
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "lualatex",
+            "tools": [
+                "lualatex"
+            ]
+        },
+        {
+            "name": "lualatex -> pythontex -> lualatex",
+            "tools": [
+                "lualatex",
+                "pythontex",
+                "lualatex"
+            ]
+        }
+    ],
     "cSpell.words": [
+        "achemso",
+        "amsthm",
+        "auctex",
+        "auxlock",
+        "biber",
         "bitboxes",
         "bytefield",
         "counterwithin",
+        "cprotect",
         "datatool",
+        "DOCFILE",
+        "dpth",
+        "eledsec",
+        "elsarticle",
+        "Elsevier",
+        "endfloat",
+        "expex",
+        "feynmf",
+        "feynmp",
+        "gathertags",
+        "gaux",
+        "glog",
+        "glsdefs",
+        "gnuplottex",
+        "gregoriotex",
+        "gtex",
+        "gummi",
+        "htlatex",
+        "hypdoc",
+        "Kile",
+        "knitr",
+        "Latexian",
+        "latexrun",
+        "ledmac",
+        "ledpar",
         "longtable",
+        "ltjruby",
+        "luatexja",
+        "makeidx",
+        "minitoc",
+        "morewrites",
+        "newpax",
+        "nofootinbib",
+        "nomencl",
         "pdfauthor",
+        "pdfcomment",
+        "pdfpc",
+        "pdfpcnotes",
+        "pdfsync",
+        "pytxcode",
+        "rubbercache",
+        "sagetex",
+        "scmd",
+        "scrwfile",
+        "sout",
         "stepnumber",
-        "texname"
+        "tcolorbox",
+        "texname",
+        "Texpad",
+        "texpadtmp",
+        "thmtools",
+        "titletoc",
+        "todonotes",
+        "vhistory",
+        "xcolor",
+        "xindy",
+        "xmpi",
+        "xmpincl",
+        "Xnic",
+        "xwatermark",
+        "xypic"
     ]
 }
